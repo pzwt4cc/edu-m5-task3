@@ -1,0 +1,95 @@
+@use "../../styles/variables" as v;
+
+.mainForm {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    max-width: 600px;
+    width: 100%;
+    background-color: v.$surface;
+    padding: 1.25rem;
+    border-radius: v.$main-border-radius;
+    border: 1px solid v.$main-border-color;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+
+    @media (max-width: 640px) {
+        padding: 1rem;
+        margin: 0.5rem auto;
+        border-radius: 0.75rem;
+    }
+}
+
+.labelTask {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: v.$text-main;
+}
+
+.labelTaskField {
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    border: 1px solid v.$main-border-color;
+    background-color: v.$main-light;
+    color: v.$text-main;
+    font-size: 1rem;
+    outline: none;
+    transition:
+        border-color 0.2s ease-in-out,
+        box-shadow 0.2s ease-in-out;
+
+    &:focus {
+        border-color: v.$primary;
+        box-shadow: 0 0 0 2px rgba(103, 80, 164, 0.15);
+    }
+
+    &::placeholder {
+        color: v.$text-secondary;
+        opacity: 0.7;
+    }
+}
+
+.labelInputError {
+    font-size: 0.8rem;
+    color: v.$error;
+    margin: 0 0.5rem;
+    font-weight: bold;
+}
+
+.formBtnAdd {
+    align-self: flex-end;
+    background-color: v.$primary;
+    color: v.$main-light;
+    border: none;
+    border-radius: v.$main-border-radius;
+    padding: 0.4rem 1.1rem;
+    font-size: 1.25rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
+
+    transition:
+        background-color 0.2s ease,
+        transform 0.2s ease,
+        border-radius 0.2s ease,
+        box-shadow 0.2s ease;
+
+    &:hover {
+        background-color: #58429b;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    }
+
+    &:active {
+        transform: scale(0.95);
+        border-radius: 4px;
+    }
+
+    @media (max-width: 480px) {
+        align-self: stretch;
+        padding: 0.6rem;
+    }
+}

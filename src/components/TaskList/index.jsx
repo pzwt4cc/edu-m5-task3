@@ -1,19 +1,33 @@
 import { connect } from "react-redux";
 import { deleteTask, updateTaskStatus } from "../../store/slices/taskSlice";
+import classNames from "classnames";
+import styles from "./TaskList.module.scss";
+import { MdDeleteOutline } from "react-icons/md";
 
 function TaskList({ tasks, deleteTaskById, updateTaskStatusById }) {
   return (
     <ul>
       {tasks.map((t) => (
-        <li key={t.id}>
+        <li
+          className={classNames(styles.listCardItem, {
+            [styles.done]: t.isDone,
+          })}
+          key={t.id}
+        >
           <input
+            className={classNames(styles.itemCheckInput)}
             type="checkbox"
             checked={t.isDone}
             onChange={() => updateTaskStatusById(t.id)}
           />
-          <p>{t.name}</p>
-          {t.text}
-          <button onClick={() => deleteTaskById(t.id)}>Delete</button>
+          <div className={classNames(styles.itemName)}>{t.name}</div>
+          <div className={classNames(styles.itemText)}>{t.text}</div>
+          <button
+            className={classNames(styles.itemDelBtn)}
+            onClick={() => deleteTaskById(t.id)}
+          >
+            <MdDeleteOutline />
+          </button>
         </li>
       ))}
     </ul>

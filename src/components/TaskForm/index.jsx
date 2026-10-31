@@ -1,7 +1,10 @@
 import { ErrorMessage, Field, Formik, Form } from "formik";
 import { connect } from "react-redux";
+import classNames from "classnames";
 import { TASK_VALIDATION_SCHEME } from "./../../utils/validationsScheme";
 import { addTask } from "../../store/slices/taskSlice";
+import { IoAddOutline } from "react-icons/io5";
+import styles from "./TaskForm.module.scss";
 
 function TaskForm({ addNewTask }) {
   const initialValues = {
@@ -20,19 +23,41 @@ function TaskForm({ addNewTask }) {
       onSubmit={submitHandler}
       validationSchema={TASK_VALIDATION_SCHEME}
     >
-      <Form>
-        <label>
-          Name:{" "}
-          <Field name="name" type="text" placeholder="Name of task" autoFocus />
+      <Form className={classNames(styles.mainForm)}>
+        <label className={classNames(styles.labelTask)}>
+          Title:{" "}
+          <Field
+            className={classNames(styles.labelTaskField)}
+            name="name"
+            type="text"
+            placeholder="Task title..."
+            autoFocus
+          />
         </label>
-        <ErrorMessage name="name" component="div" />
+        <ErrorMessage
+          className={classNames(styles.labelInputError)}
+          name="name"
+          component="div"
+        />
 
-        <label>
-          Text: <Field name="text" type="text" />
+        <label className={classNames(styles.labelTask)}>
+          Description:{" "}
+          <Field
+            className={classNames(styles.labelTaskField)}
+            name="text"
+            type="text"
+            placeholder="Add a description..."
+          />
         </label>
-        <ErrorMessage name="text" component="div" />
+        <ErrorMessage
+          className={classNames(styles.labelInputError)}
+          name="text"
+          component="div"
+        />
 
-        <button type="submit">Add</button>
+        <button className={classNames(styles.formBtnAdd)} type="submit">
+          <IoAddOutline />
+        </button>
       </Form>
     </Formik>
   );

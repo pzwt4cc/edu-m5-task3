@@ -1,0 +1,22 @@
+@use "./variables" as v;
+
+@font-face {
+    font-family: "Outfit";
+    src: url("./../fonts/Outfit-VariableFont_wght.ttf") format("truetype");
+    font-weight: 100 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: "Outfit", sans-serif;
+    background-color: #2b2633;
+    color: v.$text-main;
+    padding: 2rem 1rem;
+}
