@@ -5,7 +5,7 @@ import { fetchInitialUser } from "../../store/slices/userSlice";
 import styles from "./Header.module.scss";
 import UserProfile from "../UserProfile";
 
-function Header({ user, getUser }) {
+function Header({ user, isFetching, error, getUser }) {
   useEffect(() => {
     getUser();
   }, [getUser]);
@@ -13,8 +13,14 @@ function Header({ user, getUser }) {
   return (
     <div className={classNames(styles.header)}>
       <div className={classNames(styles.logo)}>Todo</div>
-      <div className={classNames(styles.userProfile)}>
-        {user ? <UserProfile user={user} /> : <span>Loading...</span>}
+      <div className={styles.userProfile}>
+        {isFetching && (
+          <span className={styles.userProfileFetching}>Loading...</span>
+        )}
+        {error && (
+          <span className={styles.userProfileError}>Failed to load</span>
+        )}
+        {user && <UserProfile user={user} />}
       </div>
     </div>
   );

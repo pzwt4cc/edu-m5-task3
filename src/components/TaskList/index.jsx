@@ -11,6 +11,8 @@ import { MdDeleteOutline } from "react-icons/md";
 
 function TaskList({
   tasks,
+  isFetching,
+  error,
   deleteTaskById,
   updateTaskStatusById,
   getInitialTasks,
@@ -18,6 +20,11 @@ function TaskList({
   useEffect(() => {
     getInitialTasks();
   }, [getInitialTasks]);
+
+  if (isFetching)
+    return <div className={styles.userTaskFetching}>Loading...</div>;
+  if (error)
+    return <div className={styles.userTaskError}>Error: {error.message}</div>;
 
   return (
     <ul>

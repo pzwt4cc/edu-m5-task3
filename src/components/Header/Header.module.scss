@@ -3,10 +3,11 @@
 .header {
     display: flex;
     justify-content: space-between;
+    align-items: center;
+    min-height: 80px;
     gap: 1rem;
     background-color: v.$main-light;
     padding: 0.5rem 1rem;
-    align-items: center;
 }
 
 .logo {
@@ -16,13 +17,15 @@
 
     &:hover {
         color: v.$primary;
-        transition: 0.3s ease-in-out;
         transform: scale(1.1);
         cursor: pointer;
     }
 }
 
 .userProfile {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     border-radius: v.$main-border-radius;
     border: 2px solid v.$primary;
     padding: 0.3rem 0.6rem;
@@ -33,8 +36,19 @@
         cursor: pointer;
         background-color: v.$main-dark;
         border-color: v.$main-dark;
-        transition: 0.3s ease-in-out;
         color: v.$main-light;
         font-weight: bold;
     }
+}
+
+.userProfileFetching {
+    display: flex;
+    align-items: center;
+}
+
+.userProfileError {
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+    color: v.$error;
 }
