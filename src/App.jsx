@@ -1,13 +1,17 @@
 import TaskForm from "./components/TaskForm";
 import TaskList from "./components/TaskList";
 import styles from "./App.module.scss";
+import Header from "./components/Header";
 
 function App() {
   return (
-    <div className={styles.appContainer}>
-      <TaskForm />
-      <TaskList />
-    </div>
+    <>
+      <Header />
+      <div className={styles.appContainer}>
+        <TaskForm />
+        <TaskList />
+      </div>
+    </>
   );
 }
 
