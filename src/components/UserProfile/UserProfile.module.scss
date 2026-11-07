@@ -1,0 +1,19 @@
+@use "./../../styles/variables" as v;
+
+.userProfile {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.userAvatar {
+    width: v.$user-profile-photo-width;
+    height: v.$user-profile-photo-height;
+    object-fit: cover;
+    border: 2px solid v.$sub-primary;
+    border-radius: 50%;
+}
+
+.userName {
+    font-size: 1.5rem;
+}
