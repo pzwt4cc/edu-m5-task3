@@ -8,7 +8,7 @@ import styles from "./TaskForm.module.scss";
 
 function TaskForm({ addNewTask }) {
   const initialValues = {
-    name: "",
+    title: "",
     text: "",
   };
 
@@ -28,7 +28,7 @@ function TaskForm({ addNewTask }) {
           Title:{" "}
           <Field
             className={classNames(styles.labelTaskField)}
-            name="name"
+            name="title"
             type="text"
             placeholder="Task title..."
             autoFocus
@@ -36,7 +36,7 @@ function TaskForm({ addNewTask }) {
         </label>
         <ErrorMessage
           className={classNames(styles.labelInputError)}
-          name="name"
+          name="title"
           component="div"
         />
 

@@ -8,7 +8,7 @@ export const fetchInitialTasks = createAsyncThunk(
       const response = await fetch(
         "https://jsonplaceholder.typicode.com/todos?_limit=5",
       );
-      const { data } = await response.json();
+      const data = await response.json();
       return data;
     } catch (err) {
       return thunkAPI.rejectWithValue({ message: err.message });
@@ -27,7 +27,7 @@ const taskSlice = createSlice({
   name: "tasks",
   reducers: {
     addTask: (state, { payload }) => {
-      state.tasks.push({ ...payload, id: uuidv4(), isDone: false });
+      state.tasks.push({ ...payload, id: uuidv4(), completed: false });
     },
     deleteTask: (state, { payload }) => {
       state.tasks = state.tasks.filter((t) => t.id !== payload);
@@ -35,7 +35,7 @@ const taskSlice = createSlice({
     updateTaskStatus: (state, { payload }) => {
       const task = state.tasks.find((t) => t.id === payload);
       if (task) {
-        task.isDone = !task.isDone;
+        task.completed = !task.completed;
       }
     },
   },

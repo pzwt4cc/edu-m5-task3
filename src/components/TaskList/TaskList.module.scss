@@ -18,7 +18,7 @@
     border-radius: v.$main-border-radius;
     border: 1px solid v.$main-border-color;
 
-    &.done {
+    &.completed {
         background-color: rgba(76, 175, 80, 0.16);
         border-color: v.$done;
     }
