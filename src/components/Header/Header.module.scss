@@ -5,5 +5,36 @@
     justify-content: space-between;
     gap: 1rem;
     background-color: v.$main-light;
-    padding: 1.5rem;
+    padding: 0.5rem 1rem;
+    align-items: center;
+}
+
+.logo {
+    font-size: 2rem;
+    font-weight: bold;
+    transition: 0.3s ease-in-out;
+
+    &:hover {
+        color: v.$primary;
+        transition: 0.3s ease-in-out;
+        transform: scale(1.1);
+        cursor: pointer;
+    }
+}
+
+.userProfile {
+    border-radius: v.$main-border-radius;
+    border: 2px solid v.$primary;
+    padding: 0.3rem 0.6rem;
+    background-color: v.$sub-primary;
+    transition: 0.3s ease-in-out;
+
+    &:hover {
+        cursor: pointer;
+        background-color: v.$main-dark;
+        border-color: v.$main-dark;
+        transition: 0.3s ease-in-out;
+        color: v.$main-light;
+        font-weight: bold;
+    }
 }
